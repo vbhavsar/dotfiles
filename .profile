@@ -10,6 +10,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 alias h='cd ~'
 alias cls=clear
 
+alias ls='ls --color'
 alias l='ls -ltr'
 alias la='ls -a'
 

@@ -1,0 +1,30 @@
+
+sessionname main
+
+screen -t shell 0 bash
+screen -t src 1 bash
+screen -t scripts 2 bash
+screen -t misc 3 bash
+screen -t logs 3 bash
+
+defscrollback 10000
+
+caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= %m/%d/%Y %c"
+vbell off
+
+bindkey -k k1 select 1
+bindkey -k k2 select 2
+bindkey -k k3 select 3
+bindkey -k k4 select 4
+bindkey -k k5 select 5
+bindkey -k k6 select 6
+bindkey -k k7 select 7
+bindkey -k k8 select 8
+bindkey -k k9 select 9
+bindkey -k k; select 10
+bindkey -k F1 prev
+bindkey -k F2 next
+
+bindkey "^[^[[C" next # Ctrl+Alt+Right
+bindkey "^[^[[D" prev # Ctrl+Alt+Left
+

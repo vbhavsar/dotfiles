@@ -4,6 +4,12 @@ set -o vi
 
 export H=$HOME
 
+if [[ -z $TMP && -d $H/tmp ]]; then
+        export TMP=$H/tmp
+else
+        export TMP=/tmp
+fi
+
 export JAVA_HOME=/home/ec2-user/bin/jdk1.7.0
 export PATH=$PATH:$JAVA_HOME/bin
 

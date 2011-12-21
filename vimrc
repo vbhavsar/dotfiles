@@ -107,19 +107,22 @@ endif
 
 " colo desert
 " colo zenburn
-colo molokai
+" colo molokai
+colo darkblue
 
 " set guifont=Courier_New:h9:cANSI
-set guifont=Envy_Code_R:h9:cANSI
+set guifont=Courier\ 10\ Pitch\ 9
+" set guifont=Envy_Code_R:h9:cANSI
 " set guifont=Envy_Code_R:h10:cANSI
 
 set nohls
+set tabstop=4
 
 cs add ~/.cscope/cscope.out
 
 set backup
-set backupdir=$TMP
-set directory=$TMP
+set backupdir=$TMP,/tmp
+set directory=$TMP,/tmp
 
 "se nu
 

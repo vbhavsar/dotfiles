@@ -27,6 +27,7 @@ alias grep='grep --color'
 
 alias via='vi ~/.profile; apply'
 alias apply='. ~/.profile'
+alias virc='vi ~/.vimrc'
 
 alias tmp='cd ~/tmp'
 alias sw='cd ~/sw'

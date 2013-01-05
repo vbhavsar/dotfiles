@@ -1,26 +1,23 @@
+
 if [[ "$SHELL" == "/bin/bash" ]]; then
-        unalias -a
+	unalias -a
 elif [[ "$SHELL" == "/bin/zsh" ]]; then
-        unalias -m "*"
+	unalias -m "*"
 fi
 
 set -o vi
 
 export H=$HOME
 
-if [[ -z $TMP && -d $H/tmp ]]; then
-        export TMP=$H/tmp
-else
-        export TMP=/tmp
-fi
-
 if [[ -d "/home/ec2-user/bin/jdk1.7.0" ]]; then
-        export JAVA_HOME=/home/ec2-user/bin/jdk1.7.0
-        export PATH=$PATH:$JAVA_HOME/bin
+	export JAVA_HOME=/home/ec2-user/bin/jdk1.7.0
+	export PATH=$PATH:$JAVA_HOME/bin
 fi
 
 alias h='cd ~'
 alias cls=clear
+
+alias vi='vim'
 
 alias ls='ls --color'
 alias l='ls -ltr'
@@ -28,7 +25,8 @@ alias la='ls -a'
 
 alias clsl='cls;l'
 alias clls='clsl'
-alias cd='_cd'
+alias clll='cls;ll'
+alias clsls='cls;ls'
 alias s="cd ${H}/scripts"
 alias src="cd ${H}/src"
 alias repo="cd ${H}/repo"
@@ -56,6 +54,9 @@ alias ....='cd ../../..'
 alias sls='screen -ls'
 alias sR='screen -R'
 alias visc='vi ~/.screenrc'
+alias tls='tmux ls'
+alias ta='tmux attach -t'
+alias vit='vi ~/.tmux.conf'
 
 alias t0='tail -q -n0 -F'
 
@@ -64,34 +65,30 @@ alias lp="_lp"
 alias 3d='cal -3'
 alias y='cal -y'
 
+alias md='/home/ec2-user/sw/Markdown_1.0.1/Markdown.pl'
+
+alias push_to_gh="git push origin master"
+
 ########################
 # Functions
 ########################
 
-function _cd(){
-	if [ -z $2 ]; then
-		command cd $@
-	else
-		cd $(echo `pwd` | sed "s/$1/$2/")
-	fi
-}
-
 function _lp(){
-        if [[ -z $1 ]]; then
-                command lp
+    if [[ -z $1 ]]; then
+        command lp
+    else
+        c1=$(echo "$1" | cut -c1)
+        if [[ $c1 == "/" ]]; then
+            echo $1
         else
-                c1=$(echo "$1" | cut -c1)
-                if [[ $c1 == "/" ]]; then
-                        echo $1
-                else
-                        fp="$(pwd)/$1"
-                        if [[ ! -f $fp ]]; then
-                                echo "no such file exists"
-                        else
-                                echo $fp
-                        fi
-                fi
+            fp="$(pwd)/$1"
+            if [[ ! -f $fp ]]; then
+                echo "no such file exists"
+            else
+                echo $fp
+            fi
         fi
+    fi
 
 }
 

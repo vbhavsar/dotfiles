@@ -1,4 +1,9 @@
-unalias -a
+
+if [[ "$SHELL" == "/bin/bash" ]]; then
+        unalias -a
+elif [[ "$SHELL" == "/bin/zsh" ]]; then
+        unalias -m "*"
+fi
 
 set -o vi
 

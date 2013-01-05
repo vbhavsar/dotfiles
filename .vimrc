@@ -118,7 +118,9 @@ set guifont=Courier\ 10\ Pitch\ 9
 set nohls
 set tabstop=4
 
-cs add ~/.cscope/cscope.out
+if filereadable('~/.cscope/cscope.out') 
+	cs add ~/.cscope/cscope.out
+endif 
 
 set backup
 set backupdir=$TMP,/tmp

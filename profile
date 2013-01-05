@@ -1,4 +1,3 @@
-
 if [[ "$SHELL" == "/bin/bash" ]]; then
         unalias -a
 elif [[ "$SHELL" == "/bin/zsh" ]]; then
@@ -15,8 +14,10 @@ else
         export TMP=/tmp
 fi
 
-export JAVA_HOME=/home/ec2-user/bin/jdk1.7.0
-export PATH=$PATH:$JAVA_HOME/bin
+if [[ -d "/home/ec2-user/bin/jdk1.7.0" ]]; then
+        export JAVA_HOME=/home/ec2-user/bin/jdk1.7.0
+        export PATH=$PATH:$JAVA_HOME/bin
+fi
 
 alias h='cd ~'
 alias cls=clear

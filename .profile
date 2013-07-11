@@ -14,6 +14,10 @@ if [[ -d "/home/ec2-user/bin/jdk1.7.0" ]]; then
 	export PATH=$PATH:$JAVA_HOME/bin
 fi
 
+if [[ -d /home/ec2-user/sw/go/bin ]] ; then
+	export PATH=$PATH:/home/ec2-user/sw/go/bin
+fi
+
 alias h='cd ~'
 alias cls=clear
 
@@ -21,11 +25,13 @@ alias vi='vim'
 
 alias ls='ls --color'
 alias l='ls -ltr'
+alias ll='ls -l'
 alias la='ls -a'
 
 alias clsl='cls;l'
 alias clls='clsl'
 alias clll='cls;ll'
+alias clsll='cls;ll'
 alias clsls='cls;ls'
 alias s="cd ${H}/scripts"
 alias src="cd ${H}/src"
@@ -92,4 +98,8 @@ function _lp(){
 
 }
 
+alias gs='git status'
+alias gd='git diff'
+alias gb='git branch'
+alias gc='git checkout'
 

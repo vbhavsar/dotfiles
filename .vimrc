@@ -105,10 +105,13 @@ if has('autocmd')
     autocmd GUIEnter * set vb t_vb=
 endif
 
-" colo desert
-" colo zenburn
-" colo molokai
-colo darkblue
+if has('gui_running')
+  " colo desert
+  " colo zenburn
+  " colo molokai
+  " colo darkblue
+  colo macvim
+endif
 
 " set guifont=Courier_New:h9:cANSI
 set guifont=Courier\ 10\ Pitch\ 9
@@ -116,7 +119,9 @@ set guifont=Courier\ 10\ Pitch\ 9
 " set guifont=Envy_Code_R:h10:cANSI
 
 set nohls
-set tabstop=4
+set tabstop=2
+set shiftwidth=2
+set noexpandtab
 
 if filereadable('~/.cscope/cscope.out') 
 	cs add ~/.cscope/cscope.out

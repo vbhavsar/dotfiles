@@ -9,6 +9,11 @@ set -o vi
 
 export H=$HOME
 
+if [[ -e "$HOME/sw/maven" ]]; then
+  export M2_HOME=$HOME/sw/maven
+  export PATH=$PATH:$M2_HOME/bin
+fi
+
 if [[ -d "/home/ec2-user/bin/jdk1.7.0" ]]; then
 	export JAVA_HOME=/home/ec2-user/bin/jdk1.7.0
 	export PATH=$PATH:$JAVA_HOME/bin
@@ -23,7 +28,7 @@ alias cls=clear
 
 alias vi='vim'
 
-alias ls='ls --color'
+alias ls='ls -G'
 alias l='ls -ltr'
 alias ll='ls -l'
 alias la='ls -a'
@@ -42,7 +47,7 @@ alias u="cd ${H}/util"
 alias grep='grep --color'
 
 alias via='vi ~/.profile; apply'
-alias apply='. ~/.profile'
+alias apply='. ~/.profile; echo \\o/'
 alias virc='vi ~/.vimrc'
 
 alias tmp='cd ~/tmp'
@@ -104,4 +109,8 @@ alias gb='git branch'
 alias gc='git checkout'
 
 alias pallete='for i in {0..255} ; do printf "\x1b[38;5;${i}mcolour${i}\n"; done'
+
+alias viz='vi ~/.zshrc'
+
+alias senv="echo \"set -o vi; alias cls='clear'; alias l='ls -ltr'; alias clsl='cls;l'; alias t0='tail -F -n0 -q'; \""
 
